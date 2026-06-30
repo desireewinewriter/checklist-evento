@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Checklist post-evento — ¿Dónde se enfría el interés?</title>
+<script>
+  // ─────────────────────────────────────────────
+  //  CONFIGURACIÓN — completá estos 4 valores
+  // ─────────────────────────────────────────────
+  const MAILERLITE_API_KEY  = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMDNjZTNiN2I4ZjEzZjMxYTI4NWE5ZThjY2M2NzFkYzliNmYxZDdkMzNiZmMxYWM4YjJkYmRlNDMwMzUyODgxZDQ4ZDcwZDJiZWRmNTRmYmIiLCJpYXQiOjE3ODI4NTI5NjguMDk0MTk3LCJuYmYiOjE3ODI4NTI5NjguMDk0MTk5LCJleHAiOjQ5Mzg1MjY1NjguMDg3NzI3LCJzdWIiOiI5MjI0NDgiLCJzY29wZXMiOltdfQ.ibKvDj-tuGJv3z9Lzy2dQUrn2lQQUdmOvXYgN4l3IhOQXgI_fEuo8gp-S5mseeZV3QGE2FziHyOQFYddKoVmSu1lJZLVuSAgBCUWphkanF--oYSsgkT-M-rrG0AxQy6h7QcRUNs7cRZkBT0Y25BwZz94yEPxu8m9SKNy6nCkon4pRv6c1RF5UwMiBFjvrJWNQXKGOE9Sfyg18QROmjgmaeuAdFy_N7Bb3Ir_uJLzr7VNQmoEkrDqPtyHZsMguWd2CvKcAR5vSE6M7SAzKPGQFfHUERV6i5zEPGJxldcs8i77IFGfSb1yRlWmb2P5SrmuUFvbw5O3OnHcvDVFkRio7OdpV5d0r9-tWBThQFwMZ9b_oFdH9mTJLqQYMa1sCocdTC5lbkmKDFeTIbjG-ahEuNtkOHFkopYb_il3H2Jdt_mpWrB_3U5pBHktHEIiCAxsA50qF3nZgxmzJZIqi6ySnxVs1lEsbln41R6pnpZFbiJhso6SdaAwk67ahKpW2OMtwV0pTW44LxMvUBaeI9m-x06pc9a65hSLeShJPD4pbHWvxRlyuq-VFP5xdiyIh5yWv9k59jC-4XgTkmCwTJTBWai-6W9AApVSxypFrmC5JvqxK2i98EDwo0b2-UtiDE4uq30CTKnaGoEvNZ9xPxXPAI8dRUqxvOG3N1EuN3cZwys';
+  const GRUPO_ALTO          = '191734752118572053';   // 4–5 sí
+  const GRUPO_MEDIO         = '191734761662710930';   // 2–3 sí
+  const GRUPO_BAJO          = 'PEGAR_ID_GRUPO_BAJO';  // 0–1 sí ⚠️ COMPLETAR
+  // ─────────────────────────────────────────────
+</script>
+<style>
+  :root {
+    --vino:      #5b1626;
+    --vino-deep: #3a0c16;
+    --vino-soft: #7d2235;
+    --crudo:     #f3ece2;
+    --crudo-mid: #ece3d4;
+    --crudo-dark:#ddd0bb;
+    --tinta:     #241310;
+    --tinta-soft:rgba(36,19,16,0.65);
+    --oro:       #a8793f;
+    --verde:     #2e6b4f;
+    --verde-bg:  #edf4f0;
+    --amarillo-bg:#fdf6e3;
+    --amarillo:  #9a6e1a;
+    --rojo-bg:   #fceef0;
+    --rojo:      #7d2235;
+    --linea:     rgba(36,19,16,0.12);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--crudo);
+    font-family: 'Georgia', 'Iowan Old Style', serif;
+    color: var(--tinta);
+    min-height: 100vh;
+  }
+  .page { max-width: 720px; margin: 0 auto; padding: 0 0 80px; }
+
+  /* HEADER */
+  .header { padding: 52px 40px 32px; border-bottom: 1px solid var(--linea); }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--oro); margin: 0 0 14px;
+  }
+  .header h1 {
+    font-size: clamp(26px, 4vw, 36px); font-weight: 400; line-height: 1.12;
+    color: var(--vino-deep); margin: 0 0 16px;
+  }
+  .header-desc {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px; color: var(--tinta-soft); max-width: 50ch; line-height: 1.55; margin: 0;
+  }
+
+  /* INSTRUCCIÓN */
+  .instruccion {
+    padding: 24px 40px; background: var(--crudo-mid); border-bottom: 1px solid var(--linea);
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13.5px; color: var(--tinta-soft);
+  }
+  .instruccion strong { color: var(--tinta); font-weight: 600; }
+
+  /* PREGUNTAS */
+  .preguntas { padding: 36px 40px 0; }
+  .pregunta-item { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--linea); }
+  .pregunta-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .pregunta-num {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--vino-soft); margin: 0 0 6px;
+  }
+  .pregunta-texto { font-size: 17.5px; line-height: 1.35; margin: 0 0 18px; color: var(--tinta); }
+  .pregunta-detalle {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    color: var(--tinta-soft); margin: -10px 0 18px; font-style: italic;
+  }
+  .opciones { display: flex; gap: 8px; flex-wrap: wrap; }
+  .opcion {
+    display: flex; align-items: center; gap: 7px; cursor: pointer;
+    border: 1.5px solid var(--crudo-dark); border-radius: 3px; padding: 9px 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px;
+    color: var(--tinta-soft); background: var(--crudo);
+    transition: all 0.15s ease; user-select: none; -webkit-tap-highlight-color: transparent;
+  }
+  .opcion:hover { border-color: var(--vino-soft); color: var(--vino); }
+  .opcion.selected-si  { background: #edf4f0; border-color: var(--verde); color: var(--verde); }
+  .opcion.selected-no  { background: var(--rojo-bg); border-color: var(--rojo); color: var(--rojo); }
+  .opcion.selected-nose{ background: var(--amarillo-bg); border-color: var(--amarillo); color: var(--amarillo); }
+  .opcion .dot {
+    width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid currentColor;
+    flex-shrink: 0; position: relative;
+  }
+  .opcion.selected-si .dot::after,
+  .opcion.selected-no .dot::after,
+  .opcion.selected-nose .dot::after {
+    content: ''; position: absolute; inset: 2px; border-radius: 50%; background: currentColor;
+  }
+
+  /* PROGRESO */
+  .progreso-wrap { padding: 28px 40px 0; }
+  .progreso-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--tinta-soft);
+    margin-bottom: 8px; display: flex; justify-content: space-between;
+  }
+  .progreso-bar { height: 4px; background: var(--crudo-dark); border-radius: 2px; overflow: hidden; }
+  .progreso-fill { height: 100%; background: var(--vino); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+
+  /* BOTÓN PRINCIPAL */
+  .btn-wrap { padding: 36px 40px 0; }
+  .btn-resultado {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--crudo);
+    background: var(--vino-deep); border: none; padding: 17px 36px;
+    cursor: pointer; border-radius: 2px; opacity: 0.3; pointer-events: none;
+    transition: opacity 0.2s ease, background 0.2s ease; width: 100%;
+  }
+  .btn-resultado.activo { opacity: 1; pointer-events: all; }
+  .btn-resultado.activo:hover { background: var(--vino-soft); }
+
+  /* ── CAPTURA DE EMAIL ── */
+  .email-gate {
+    display: none;
+    margin: 36px 40px 0;
+    background: var(--vino-deep);
+    padding: 36px 36px 40px;
+    border-radius: 2px;
+    animation: fadeUp 0.3s ease both;
+  }
+  .email-gate.visible { display: block; }
+  .email-gate-tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--oro); margin: 0 0 12px;
+  }
+  .email-gate h3 {
+    font-size: 22px; font-weight: 400; color: var(--crudo); margin: 0 0 10px; line-height: 1.25;
+  }
+  .email-gate p {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px;
+    color: rgba(243,236,226,0.72); line-height: 1.6; margin: 0 0 28px;
+  }
+  .email-fields { display: flex; flex-direction: column; gap: 12px; }
+  .email-fields input {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px;
+    padding: 14px 16px; border: 1.5px solid rgba(243,236,226,0.25);
+    background: rgba(243,236,226,0.08); color: var(--crudo);
+    border-radius: 2px; outline: none; transition: border-color 0.15s;
+    width: 100%;
+  }
+  .email-fields input::placeholder { color: rgba(243,236,226,0.4); }
+  .email-fields input:focus { border-color: var(--oro); }
+  .btn-enviar {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--vino-deep); background: var(--crudo);
+    border: none; padding: 16px; border-radius: 2px;
+    cursor: pointer; transition: background 0.2s; width: 100%; margin-top: 4px;
+  }
+  .btn-enviar:hover { background: var(--crudo-mid); }
+  .btn-enviar:disabled { opacity: 0.5; cursor: not-allowed; }
+  .email-error {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    color: #f4a0a8; margin: 8px 0 0; display: none;
+  }
+  .email-privacidad {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px;
+    color: rgba(243,236,226,0.4); margin: 14px 0 0;
+  }
+
+  /* RESULTADO */
+  .resultado { display: none; margin: 40px 40px 0; animation: fadeUp 0.35s ease both; }
+  .resultado.visible { display: block; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+  .resultado-header { padding: 32px 32px 24px; border-radius: 2px 2px 0 0; }
+  .resultado-header.nivel-alto  { background: var(--verde-bg); }
+  .resultado-header.nivel-medio { background: var(--amarillo-bg); }
+  .resultado-header.nivel-bajo  { background: var(--rojo-bg); }
+  .resultado-tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase; margin: 0 0 10px;
+  }
+  .nivel-alto  .resultado-tag { color: var(--verde); }
+  .nivel-medio .resultado-tag { color: var(--amarillo); }
+  .nivel-bajo  .resultado-tag { color: var(--rojo); }
+  .resultado-titulo {
+    font-size: clamp(20px, 3.2vw, 26px); font-weight: 400; line-height: 1.2;
+    margin: 0 0 14px; color: var(--vino-deep);
+  }
+  .resultado-diagnostico {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px;
+    line-height: 1.6; color: var(--tinta); margin: 0;
+  }
+
+  .desglose { background: white; padding: 28px 32px; border-left: 1px solid var(--linea); border-right: 1px solid var(--linea); }
+  .desglose-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--tinta-soft); margin: 0 0 16px;
+  }
+  .desglose-lista { list-style: none; margin: 0; padding: 0; }
+  .desglose-lista li {
+    display: flex; align-items: flex-start; gap: 12px; padding: 10px 0;
+    border-bottom: 1px solid var(--linea); font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px; line-height: 1.45; color: var(--tinta);
+  }
+  .desglose-lista li:last-child { border-bottom: none; }
+  .desglose-lista .icono { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+  .proximo { background: var(--vino-deep); padding: 32px 32px; border-radius: 0 0 2px 2px; }
+  .proximo-tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--oro); margin: 0 0 12px;
+  }
+  .proximo h3 { font-size: 19px; font-weight: 400; color: var(--crudo); margin: 0 0 12px; line-height: 1.3; }
+  .proximo p { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14.5px; color: rgba(243,236,226,0.78); line-height: 1.6; margin: 0 0 24px; }
+  .proximo-cta {
+    display: inline-block; font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--vino-deep); background: var(--crudo); padding: 14px 28px;
+    border-radius: 2px; text-decoration: none; transition: background 0.2s;
+  }
+  .proximo-cta:hover { background: var(--crudo-mid); }
+  .proximo-nota { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; color: rgba(243,236,226,0.45); margin: 14px 0 0 !important; }
+
+  .reiniciar-wrap { padding: 24px 40px 0; text-align: right; display: none; }
+  .btn-reiniciar {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--tinta-soft);
+    background: none; border: none; cursor: pointer; padding: 0;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .btn-reiniciar:hover { color: var(--vino); }
+
+  @media (max-width: 520px) {
+    .header, .instruccion, .preguntas,
+    .progreso-wrap, .btn-wrap, .reiniciar-wrap { padding-left: 22px; padding-right: 22px; }
+    .email-gate, .resultado { margin-left: 22px; margin-right: 22px; }
+    .resultado-header, .desglose, .proximo, .email-gate { padding-left: 22px; padding-right: 22px; }
+    .opciones { gap: 6px; }
+    .opcion { font-size: 13px; padding: 8px 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <p class="eyebrow">Checklist gratuita · 5 preguntas</p>
+    <h1>¿En cuál de los 5 puntos se está enfriando tu seguimiento post evento?</h1>
+    <p class="header-desc">Respondé con honestidad pensando en tu último evento. Sin trampa: es para que veas exactamente dónde está la fuga.</p>
+  </div>
+
+  <div class="instruccion">
+    Para cada pregunta elegí la opción que mejor describe lo que <strong>realmente</strong> hacés, no lo que te gustaría hacer.
+  </div>
+
+  <div class="preguntas" id="preguntas">
+
+    <div class="pregunta-item" data-id="1">
+      <p class="pregunta-num">Punto 01 — Identificación</p>
+      <p class="pregunta-texto">¿Podés nombrar hoy quiénes, de tu último evento, mostraron interés real?</p>
+      <p class="pregunta-detalle">No "la gente que vino". Las personas específicas que preguntaron, se quedaron a charlar, o pidieron más información.</p>
+      <div class="opciones">
+        <label class="opcion" data-value="si"><span class="dot"></span> Sí, los tengo identificados</label>
+        <label class="opcion" data-value="no"><span class="dot"></span> No, no los separé</label>
+        <label class="opcion" data-value="nose"><span class="dot"></span> No sé bien cómo medirlo</label>
+      </div>
+    </div>
+
+    <div class="pregunta-item" data-id="2">
+      <p class="pregunta-num">Punto 02 — Siguiente paso</p>
+      <p class="pregunta-texto">¿Había un paso concreto definido para después del evento?</p>
+      <p class="pregunta-detalle">Algo que la persona pudiera hacer o que vos pudieras activar en las 48 horas siguientes: un formulario, un mensaje, una llamada, un link.</p>
+      <div class="opciones">
+        <label class="opcion" data-value="si"><span class="dot"></span> Sí, estaba definido</label>
+        <label class="opcion" data-value="no"><span class="dot"></span> No, no había nada armado</label>
+        <label class="opcion" data-value="nose"><span class="dot"></span> Había algo pero no lo usé</label>
+      </div>
+    </div>
+
+    <div class="pregunta-item" data-id="3">
+      <p class="pregunta-num">Punto 03 — Momento de reaparición</p>
+      <p class="pregunta-texto">¿Cuándo volviste a aparecer después del evento?</p>
+      <p class="pregunta-detalle">No hablo de redes sociales o contenido general. Hablo de un contacto específico dirigido a las personas que estuvieron ahí.</p>
+      <div class="opciones">
+        <label class="opcion" data-value="si"><span class="dot"></span> Dentro de las 48–72 hs</label>
+        <label class="opcion" data-value="no"><span class="dot"></span> No volví a aparecer</label>
+        <label class="opcion" data-value="nose"><span class="dot"></span> Volví semanas después</label>
+      </div>
+    </div>
+
+    <div class="pregunta-item" data-id="4">
+      <p class="pregunta-num">Punto 04 — El mensaje</p>
+      <p class="pregunta-texto">¿Qué mensaje recibió esa persona después del evento?</p>
+      <p class="pregunta-detalle">¿Hubo algo específico o la misma comunicación general que recibe cualquier contacto tuyo?</p>
+      <div class="opciones">
+        <label class="opcion" data-value="si"><span class="dot"></span> Un mensaje pensado para ellas</label>
+        <label class="opcion" data-value="no"><span class="dot"></span> Nada, no mandé nada</label>
+        <label class="opcion" data-value="nose"><span class="dot"></span> El mismo que mando a todos</label>
+      </div>
+    </div>
+
+    <div class="pregunta-item" data-id="5">
+      <p class="pregunta-num">Punto 05 — Continuidad</p>
+      <p class="pregunta-texto">¿Tenés una forma de convertir esa conversación en una relación continua?</p>
+      <p class="pregunta-detalle">No necesariamente un sistema complejo. Algo que evite que el vínculo que generaste en el evento se empiece de cero la próxima vez.</p>
+      <div class="opciones">
+        <label class="opcion" data-value="si"><span class="dot"></span> Sí, tengo algo armado</label>
+        <label class="opcion" data-value="no"><span class="dot"></span> No, cada evento es desde cero</label>
+        <label class="opcion" data-value="nose"><span class="dot"></span> Lo intuyo pero no lo tengo claro</label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="progreso-wrap">
+    <div class="progreso-label">
+      <span>Progreso</span>
+      <span id="progreso-count">0 de 5 respondidas</span>
+    </div>
+    <div class="progreso-bar"><div class="progreso-fill" id="progreso-fill"></div></div>
+  </div>
+
+  <div class="btn-wrap">
+    <button class="btn-resultado" id="btn-resultado">Ver mi resultado</button>
+  </div>
+
+  <!-- EMAIL GATE -->
+  <div class="email-gate" id="email-gate">
+    <p class="email-gate-tag">Un paso más</p>
+    <h3>¿A dónde te mando el análisis completo?</h3>
+    <p>Dejame tu nombre y tu email. Ahí mismo te mando la guía con los pasos para cerrar la fuga que encontraste hoy.</p>
+    <div class="email-fields">
+      <input type="text"  id="input-nombre" placeholder="Tu nombre" autocomplete="given-name" />
+      <input type="email" id="input-email"  placeholder="Tu email" autocomplete="email" />
+      <button class="btn-enviar" id="btn-enviar">Ver mi resultado →</button>
+      <p class="email-error" id="email-error">Revisá que el email esté bien escrito.</p>
+    </div>
+    <p class="email-privacidad">Sin spam. Solo la guía y la secuencia que corresponde a tu resultado.</p>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="resultado" id="resultado"></div>
+
+  <div class="reiniciar-wrap" id="reiniciar-wrap">
+    <button class="btn-reiniciar" id="btn-reiniciar">Volver a empezar</button>
+  </div>
+
+</div>
+
+<script>
+  const respuestas = {};
+  const total = 5;
+
+  const labels = {
+    1: { si:'✅ Identificaste quién mostró interés real.',        no:'❌ No separaste quién mostró interés concreto.',         nose:'⚠️ No tenés criterio para separar interés real de cortesía.' },
+    2: { si:'✅ Había un paso concreto definido post evento.',    no:'❌ No había ningún siguiente paso armado.',              nose:'⚠️ Tenías algo pero no lo activaste.' },
+    3: { si:'✅ Volviste a aparecer en el momento clave.',        no:'❌ No volviste a aparecer después del evento.',          nose:'⚠️ Volviste demasiado tarde, cuando el interés ya se enfrió.' },
+    4: { si:'✅ Mandaste un mensaje específico para ellas.',      no:'❌ No hubo ningún mensaje post evento.',                 nose:'⚠️ Mandaste comunicación general, no específica.' },
+    5: { si:'✅ Tenés algo que sostiene el vínculo más allá.',   no:'❌ Cada evento empieza desde cero.',                     nose:'⚠️ Lo intuís pero no lo tenés estructurado.' },
+  };
+
+  const resultados = {
+    alto: {
+      clase: 'nivel-alto',
+      tag: 'Resultado: Sistema bien orientado',
+      titulo: 'Estás más cerca que la mayoría. El problema no es la estructura — es la consistencia.',
+      diagnostico: 'Tenés los elementos básicos. El desafío ahora es que esto deje de depender de tu energía de ese día y se vuelva un proceso que funciona solo. Una sola fuga sistemática puede estar costándote más de lo que creés.',
+      proximo_titulo: 'Identificá la fuga específica.',
+      proximo_texto: 'Mirá en cuál de los 5 puntos marcaste "a veces" o "no sé". Ese es donde estás perdiendo ventas que ya estaban casi hechas. La guía que te mandé te muestra cómo cerrar ese punto.',
+      cta: 'Revisar mi email',
+      cta_href: '#'
+    },
+    medio: {
+      clase: 'nivel-medio',
+      tag: 'Resultado: Hay fugas importantes',
+      titulo: 'Ves el problema pero no lo estás resolviendo todavía.',
+      diagnostico: 'Hay energía y conexión en tus eventos, pero el seguimiento tiene agujeros concretos. El resultado: gente que "quería saber más" y nunca más apareció — no porque no quisiera, sino porque no la acompañaste.',
+      proximo_titulo: 'Armá el sistema mínimo.',
+      proximo_texto: 'No necesitás un CRM ni una automatización compleja. Necesitás tres cosas claras: quién, cuándo y qué mensaje. La guía que te mandé te lleva por ese proceso.',
+      cta: 'Revisar mi email',
+      cta_href: '#'
+    },
+    bajo: {
+      clase: 'nivel-bajo',
+      tag: 'Resultado: El problema está claro',
+      titulo: 'Tu evento funciona. Lo que viene después, no.',
+      diagnostico: 'Estás invirtiendo tiempo, plata y energía en generar interés, para después soltar a esa persona sin ningún puente. Cada evento que termina sin seguimiento es dinero que ya generaste y dejaste caer. No es falta de talento. Es falta de sistema.',
+      proximo_titulo: 'Empezá desde el punto cero, en orden.',
+      proximo_texto: 'Antes de pensar en el mensaje perfecto, hay que resolver lo básico: saber quién estuvo ahí y qué pasa con esa persona en las 48 horas siguientes. La guía que te mandé te lleva por ese proceso paso a paso.',
+      cta: 'Revisar mi email',
+      cta_href: '#'
+    }
+  };
+
+  function getOpcionClass(v) {
+    return v === 'si' ? 'selected-si' : v === 'no' ? 'selected-no' : 'selected-nose';
+  }
+
+  document.querySelectorAll('.pregunta-item').forEach(item => {
+    const id = parseInt(item.dataset.id);
+    item.querySelectorAll('.opcion').forEach(op => {
+      op.addEventListener('click', () => {
+        respuestas[id] = op.dataset.value;
+        item.querySelectorAll('.opcion').forEach(o => o.classList.remove('selected-si','selected-no','selected-nose'));
+        op.classList.add(getOpcionClass(op.dataset.value));
+        actualizarProgreso();
+      });
+    });
+  });
+
+  function actualizarProgreso() {
+    const n = Object.keys(respuestas).length;
+    document.getElementById('progreso-count').textContent = `${n} de ${total} respondidas`;
+    document.getElementById('progreso-fill').style.width = `${(n/total)*100}%`;
+    const btn = document.getElementById('btn-resultado');
+    btn.classList.toggle('activo', n === total);
+  }
+
+  // PASO 1: mostrar email gate
+  document.getElementById('btn-resultado').addEventListener('click', () => {
+    if (Object.keys(respuestas).length < total) return;
+    document.getElementById('btn-resultado').style.display = 'none';
+    const gate = document.getElementById('email-gate');
+    gate.classList.add('visible');
+    setTimeout(() => gate.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  });
+
+  // PASO 2: enviar a MailerLite y mostrar resultado
+  document.getElementById('btn-enviar').addEventListener('click', async () => {
+    const nombre = document.getElementById('input-nombre').value.trim();
+    const email  = document.getElementById('input-email').value.trim();
+    const errorEl = document.getElementById('email-error');
+    const btn = document.getElementById('btn-enviar');
+
+    if (!email || !email.includes('@')) {
+      errorEl.style.display = 'block';
+      return;
+    }
+    errorEl.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    const siCount = Object.values(respuestas).filter(v => v === 'si').length;
+    const nivel = siCount >= 4 ? 'alto' : siCount >= 2 ? 'medio' : 'bajo';
+    const grupoId = nivel === 'alto' ? GRUPO_ALTO : nivel === 'medio' ? GRUPO_MEDIO : GRUPO_BAJO;
+
+    try {
+      await fetch('https://connect.mailerlite.com/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${MAILERLITE_API_KEY}`
+        },
+        body: JSON.stringify({
+          email,
+          fields: {
+            name: nombre,
+            resultado_checklist: nivel,
+            puntos_si: siCount
+          },
+          groups: [grupoId]
+        })
+      });
+    } catch(e) {
+      // Si falla la API igual mostramos el resultado
+      console.warn('MailerLite error:', e);
+    }
+
+    mostrarResultado(nivel);
+  });
+
+  function mostrarResultado(nivel) {
+    document.getElementById('email-gate').style.display = 'none';
+
+    const r = resultados[nivel];
+    let desgloseHTML = '<ul class="desglose-lista">';
+    for (let i = 1; i <= 5; i++) {
+      const v = respuestas[i];
+      const partes = labels[i][v].split(' ');
+      const icono = partes[0];
+      const texto = partes.slice(1).join(' ');
+      desgloseHTML += `<li><span class="icono">${icono}</span><span>${texto}</span></li>`;
+    }
+    desgloseHTML += '</ul>';
+
+    document.getElementById('resultado').innerHTML = `
+      <div class="resultado-header ${r.clase}">
+        <p class="resultado-tag">${r.tag}</p>
+        <h2 class="resultado-titulo">${r.titulo}</h2>
+        <p class="resultado-diagnostico">${r.diagnostico}</p>
+      </div>
+      <div class="desglose">
+        <p class="desglose-label">Tus respuestas</p>
+        ${desgloseHTML}
+      </div>
+      <div class="proximo">
+        <p class="proximo-tag">Próximo paso</p>
+        <h3>${r.proximo_titulo}</h3>
+        <p>${r.proximo_texto}</p>
+        <a href="${r.cta_href}" class="proximo-cta">${r.cta}</a>
+        <p class="proximo-nota">Revisá tu casilla — te llega en minutos.</p>
+      </div>
+    `;
+
+    const res = document.getElementById('resultado');
+    res.classList.add('visible');
+    document.getElementById('reiniciar-wrap').style.display = 'block';
+    setTimeout(() => res.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+
+  document.getElementById('btn-reiniciar').addEventListener('click', () => {
+    Object.keys(respuestas).forEach(k => delete respuestas[k]);
+    document.querySelectorAll('.opcion').forEach(o => o.classList.remove('selected-si','selected-no','selected-nose'));
+    document.getElementById('resultado').classList.remove('visible');
+    document.getElementById('resultado').innerHTML = '';
+    document.getElementById('reiniciar-wrap').style.display = 'none';
+    document.getElementById('email-gate').classList.remove('visible');
+    document.getElementById('email-gate').style.display = '';
+    document.getElementById('btn-resultado').style.display = '';
+    document.getElementById('btn-resultado').classList.remove('activo');
+    document.getElementById('input-nombre').value = '';
+    document.getElementById('input-email').value = '';
+    document.getElementById('btn-enviar').disabled = false;
+    document.getElementById('btn-enviar').textContent = 'Ver mi resultado →';
+    actualizarProgreso();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
