@@ -373,8 +373,7 @@
       diagnostico: 'Tenés armada la cata. Sabés cómo vender en las ferias. Te elogian por tu servicio y tu conocimiento. El desafío ahora es que esto deje de depender de tu energía de ese día y se vuelva un proceso que funciona solo, pero que se sienta humano al mismo tiempo. Una sola fuga sistemática puede estar costándote más de lo que creés.',
       proximo_titulo: 'Identificá la fuga específica.',
       proximo_texto: 'Mirá en cuál de los 5 puntos marcaste "a veces" o "no sé". Ese es donde estás perdiendo ventas que ya estaban casi hechas. Voy a compartir con vos los pasos donde te muestro cómo cerrar ese punto. Y que se siga sintiendo tu presencia.',
-      cta: 'Revisar mi email',
-      cta_href: '#'
+      cta: 'Revisar mi email'
     },
     medio: {
       clase: 'nivel-medio',
@@ -383,8 +382,7 @@
       diagnostico: 'Hay energía y conexión en los eventos a los que asistís o las catas que organizas, pero el seguimiento tiene agujeros concretos. El resultado: gente que "quería saber más" y nunca más apareció — no porque no quisiera, sino porque no hay un sistema humanizado que la acompañe después del evento.',
       proximo_titulo: 'Armá el sistema mínimo.',
       proximo_texto: 'No necesitás una automatización compleja. Necesitás tres cosas claras: quién, cuándo y qué mensaje. Te ayudo a guiar ese proceso, de manera simple y sin que se convierta en una tarea más para vos.',
-      cta: 'Revisar mi email',
-      cta_href: '#'
+      cta: 'Revisar mi email'
     },
     bajo: {
       clase: 'nivel-bajo',
@@ -393,10 +391,26 @@
       diagnostico: 'Estás invirtiendo tiempo, plata y energía en generar interés en cada evento, cata o feria que creás o a la que asistís, para después soltar a esa persona sin ningún puente. Cada evento que termina sin seguimiento es dinero que ya generaste y dejaste caer. No es falta de talento. Es falta de sistema.',
       proximo_titulo: 'Empezá por lo que ya conseguiste, la atención de quién asistió o habló con vos.',
       proximo_texto: 'Antes de pensar en el mensaje perfecto, hay que resolver lo básico: saber quién estuvo ahí y qué pasa con esa persona en las 48 horas siguientes. Vamos a recorrer ese proceso paso a paso.',
-      cta: 'Revisar mi email',
-      cta_href: '#'
+      cta: 'Revisar mi email'
     }
   };
+
+  // ── Link directo al webmail según el dominio del email capturado ──
+  function getWebmailLink(email) {
+    const dominio = (email.split('@')[1] || '').toLowerCase();
+    const proveedores = {
+      'gmail.com':      'https://mail.google.com/mail/u/0/#inbox',
+      'googlemail.com': 'https://mail.google.com/mail/u/0/#inbox',
+      'outlook.com':    'https://outlook.live.com/mail/0/inbox',
+      'hotmail.com':    'https://outlook.live.com/mail/0/inbox',
+      'live.com':       'https://outlook.live.com/mail/0/inbox',
+      'yahoo.com':      'https://mail.yahoo.com',
+      'yahoo.com.ar':   'https://mail.yahoo.com',
+      'icloud.com':     'https://www.icloud.com/mail',
+      'me.com':         'https://www.icloud.com/mail'
+    };
+    return proveedores[dominio] || 'mailto:';
+  }
 
   function getOpcionClass(v) {
     return v === 'si' ? 'selected-si' : v === 'no' ? 'selected-no' : 'selected-nose';
@@ -472,13 +486,15 @@
       console.warn('MailerLite error:', e);
     }
 
-    mostrarResultado(nivel);
+    mostrarResultado(nivel, email);
   });
 
-  function mostrarResultado(nivel) {
+  function mostrarResultado(nivel, email) {
     document.getElementById('email-gate').style.display = 'none';
 
     const r = resultados[nivel];
+    const ctaHref = getWebmailLink(email);
+
     let desgloseHTML = '<ul class="desglose-lista">';
     for (let i = 1; i <= 5; i++) {
       const v = respuestas[i];
@@ -503,7 +519,7 @@
         <p class="proximo-tag">Próximo paso</p>
         <h3>${r.proximo_titulo}</h3>
         <p>${r.proximo_texto}</p>
-        <a href="${r.cta_href}" class="proximo-cta">${r.cta}</a>
+        <a href="${ctaHref}" target="_blank" rel="noopener" class="proximo-cta">${r.cta}</a>
         <p class="proximo-nota">Revisá tu casilla — te llega en minutos.</p>
       </div>
     `;
