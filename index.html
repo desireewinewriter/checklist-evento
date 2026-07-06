@@ -263,11 +263,11 @@
 
     <div class="pregunta-item" data-id="1">
       <p class="pregunta-num">Punto 01 — Identificación</p>
-      <p class="pregunta-texto">¿Podés nombrar hoy quiénes, de tu último evento, mostraron interés real?</p>
-      <p class="pregunta-detalle">No "la gente que vino". Las personas específicas que preguntaron, se quedaron a charlar, o pidieron más información.</p>
+      <p class="pregunta-texto">¿Podés nombrar hoy quiénes, de tu último evento, mostraron interés real en vos o en tus vinos?</p>
+      <p class="pregunta-detalle">No "la gente que vino". Las personas específicas que preguntaron, se quedaron a charlar, o pidieron más información.Los que te hicieron saber que estaban realmente interesados.</p>
       <div class="opciones">
         <label class="opcion" data-value="si"><span class="dot"></span> Sí, los tengo identificados</label>
-        <label class="opcion" data-value="no"><span class="dot"></span> No, no los separé</label>
+        <label class="opcion" data-value="no"><span class="dot"></span> No, no recuerdo quiénes fueron</label>
         <label class="opcion" data-value="nose"><span class="dot"></span> No sé bien cómo medirlo</label>
       </div>
     </div>
@@ -301,7 +301,7 @@
       <div class="opciones">
         <label class="opcion" data-value="si"><span class="dot"></span> Un mensaje pensado para ellas</label>
         <label class="opcion" data-value="no"><span class="dot"></span> Nada, no mandé nada</label>
-        <label class="opcion" data-value="nose"><span class="dot"></span> El mismo que mando a todos</label>
+        <label class="opcion" data-value="nose"><span class="dot"></span> El mismo que mando a todos cuando me envían un mensaje</label>
       </div>
     </div>
 
@@ -332,16 +332,16 @@
 
   <!-- EMAIL GATE -->
   <div class="email-gate" id="email-gate">
-    <p class="email-gate-tag">Un paso más</p>
-    <h3>¿A dónde te mando el análisis completo?</h3>
-    <p>Dejame tu nombre y tu email. Ahí mismo te mando la guía con los pasos para cerrar la fuga que encontraste hoy.</p>
+    <p class="email-gate-tag">Listo</p>
+    <h3>¿A qué correo querés que te mande el análisis completo?</h3>
+    <p>Dejame tu nombre y tu email. Ahí mismo te comento cuáles son los pasos que vienen para cerrar la fuga que encontraste hoy.</p>
     <div class="email-fields">
       <input type="text"  id="input-nombre" placeholder="Tu nombre" autocomplete="given-name" />
       <input type="email" id="input-email"  placeholder="Tu email" autocomplete="email" />
       <button class="btn-enviar" id="btn-enviar">Ver mi resultado →</button>
       <p class="email-error" id="email-error">Revisá que el email esté bien escrito.</p>
     </div>
-    <p class="email-privacidad">Sin spam. Solo la guía y la secuencia que corresponde a tu resultado.</p>
+    <p class="email-privacidad">Sin spam. Solo los pasos y la secuencia que corresponde a tu resultado. Revisá la casillas de promociones o spam si no lo recibiste inmediatamente.</p>
   </div>
 
   <!-- RESULTADO -->
@@ -369,10 +369,10 @@
     alto: {
       clase: 'nivel-alto',
       tag: 'Resultado: Sistema bien orientado',
-      titulo: 'Estás más cerca que la mayoría. El problema no es la estructura — es la consistencia.',
-      diagnostico: 'Tenés los elementos básicos. El desafío ahora es que esto deje de depender de tu energía de ese día y se vuelva un proceso que funciona solo. Una sola fuga sistemática puede estar costándote más de lo que creés.',
+      titulo: 'Estás más cerca que la mayoría de tener resultados. Tus eventos ya son un éxito. El problema no es la estructura — es la consistencia.',
+      diagnostico: 'Tenés armada la cata. Sabés cómo vender en las ferias. Te elogian por tu servicio y tu conocimiento. El desafío ahora es que esto deje de depender de tu energía de ese día y se vuelva un proceso que funciona solo, pero que se sienta humano al mismo tiempo. Una sola fuga sistemática puede estar costándote más de lo que creés.',
       proximo_titulo: 'Identificá la fuga específica.',
-      proximo_texto: 'Mirá en cuál de los 5 puntos marcaste "a veces" o "no sé". Ese es donde estás perdiendo ventas que ya estaban casi hechas. La guía que te mandé te muestra cómo cerrar ese punto.',
+      proximo_texto: 'Mirá en cuál de los 5 puntos marcaste "a veces" o "no sé". Ese es donde estás perdiendo ventas que ya estaban casi hechas. Voy a compartir con vos los pasos donde te muestro cómo cerrar ese punto. Y que se siga sintiendo tu presencia.',
       cta: 'Revisar mi email',
       cta_href: '#'
     },
@@ -380,19 +380,19 @@
       clase: 'nivel-medio',
       tag: 'Resultado: Hay fugas importantes',
       titulo: 'Ves el problema pero no lo estás resolviendo todavía.',
-      diagnostico: 'Hay energía y conexión en tus eventos, pero el seguimiento tiene agujeros concretos. El resultado: gente que "quería saber más" y nunca más apareció — no porque no quisiera, sino porque no la acompañaste.',
+      diagnostico: 'Hay energía y conexión en los eventos a los que asistís o las catas que organizas, pero el seguimiento tiene agujeros concretos. El resultado: gente que "quería saber más" y nunca más apareció — no porque no quisiera, sino porque no hay un sistema humanizado que la acompañe después del evento.',
       proximo_titulo: 'Armá el sistema mínimo.',
-      proximo_texto: 'No necesitás un CRM ni una automatización compleja. Necesitás tres cosas claras: quién, cuándo y qué mensaje. La guía que te mandé te lleva por ese proceso.',
+      proximo_texto: 'No necesitás una automatización compleja. Necesitás tres cosas claras: quién, cuándo y qué mensaje. Te ayudo a guiar ese proceso, de manera simple y sin que se convierta en una tarea más para vos.',
       cta: 'Revisar mi email',
       cta_href: '#'
     },
     bajo: {
       clase: 'nivel-bajo',
-      tag: 'Resultado: El problema está claro',
+      tag: 'Resultado: Es lo que intuías, hay una fuga post-evento',
       titulo: 'Tu evento funciona. Lo que viene después, no.',
-      diagnostico: 'Estás invirtiendo tiempo, plata y energía en generar interés, para después soltar a esa persona sin ningún puente. Cada evento que termina sin seguimiento es dinero que ya generaste y dejaste caer. No es falta de talento. Es falta de sistema.',
-      proximo_titulo: 'Empezá desde el punto cero, en orden.',
-      proximo_texto: 'Antes de pensar en el mensaje perfecto, hay que resolver lo básico: saber quién estuvo ahí y qué pasa con esa persona en las 48 horas siguientes. La guía que te mandé te lleva por ese proceso paso a paso.',
+      diagnostico: 'Estás invirtiendo tiempo, plata y energía en generar interés en cada evento, cata o feria que creás o a la que asistís, para después soltar a esa persona sin ningún puente. Cada evento que termina sin seguimiento es dinero que ya generaste y dejaste caer. No es falta de talento. Es falta de sistema.',
+      proximo_titulo: 'Empezá por lo que ya conseguiste, la tención de quién asistió o habló con vos.',
+      proximo_texto: 'Antes de pensar en el mensaje perfecto, hay que resolver lo básico: saber quién estuvo ahí y qué pasa con esa persona en las 48 horas siguientes. Vamos a recorrer ese proceso paso a paso.',
       cta: 'Revisar mi email',
       cta_href: '#'
     }
