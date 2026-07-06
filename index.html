@@ -465,7 +465,7 @@
     const grupoId = nivel === 'alto' ? GRUPO_ALTO : nivel === 'medio' ? GRUPO_MEDIO : GRUPO_BAJO;
 
     try {
-      await fetch('https://connect.mailerlite.com/api/subscribers', {
+      const resp = await fetch('https://connect.mailerlite.com/api/subscribers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -474,16 +474,19 @@
         body: JSON.stringify({
           email,
           fields: {
-            name: nombre,
-            resultado_checklist: nivel,
-            puntos_si: siCount
+            name: nombre
           },
           groups: [grupoId]
         })
       });
+
+      if (!resp.ok) {
+        const errBody = await resp.json().catch(() => null);
+        console.error('MailerLite rechazó la petición:', resp.status, errBody);
+      }
     } catch(e) {
-      // Si falla la API igual mostramos el resultado
-      console.warn('MailerLite error:', e);
+      // Si falla la conexión igual mostramos el resultado, pero queda logueado
+      console.error('MailerLite error de red:', e);
     }
 
     mostrarResultado(nivel, email);
@@ -550,3 +553,4 @@
 </script>
 </body>
 </html>
+
