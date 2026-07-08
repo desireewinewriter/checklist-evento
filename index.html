@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Checklist post-evento — ¿Dónde se enfría el interés?</title>
+<title>Diagnóstico post-evento — ¿Dónde se enfría el interés?</title>
 <script>
   // ─────────────────────────────────────────────
   //  CONFIGURACIÓN — completá estos 4 valores
@@ -250,7 +250,7 @@
 <div class="page">
 
   <div class="header">
-    <p class="eyebrow">Checklist gratuita para Mujeres del Vino · 5 preguntas</p>
+    <p class="eyebrow">Diagnóstico gratuito para Mujeres del Vino · 5 preguntas</p>
     <h1>¿En cuál de los 5 puntos se está enfriando tu seguimiento post evento?</h1>
     <p class="header-desc">Respondé con honestidad pensando en tu último evento, cata o feria. Puede que hayas asistido o hayas creado el evento. La checklist, pretende ayudarte a identificar qué mejoras podés hacer en tus contactos con posibles clientes, ventas o gente que sume a tu negocio del vino. Hacela con honestidad hacia vos misma: es para que veas exactamente dónde está la fuga.</p>
   </div>
@@ -358,39 +358,62 @@
   const total = 5;
 
   const labels = {
-    1: { si:'✅ Identificaste quién mostró interés real.',        no:' Perdiste de vista a quién mostró interés concreto.',         nose:'⚠️ Te cuesta diferenciar a quienes tienen interés real de cortesía.' },
-    2: { si:'✅ Había un paso concreto definido post evento.',    no:' Faltó un paso siguiente armado.',              nose:'⚠️ Pensaste en armar algo para el cierre del evento, pero no lo activaste.' },
-    3: { si:'✅ Volviste a aparecer en el momento clave.',        no:' Después del evento no volviste a aparecer.',          nose:'⚠️ Te conectaste demasiado tarde, cuando el interés ya se enfrió.' },
-    4: { si:'✅ Mandaste un mensaje específico para ellas.',      no:' No hubo ningún mensaje post evento.',                 nose:'⚠️ Te comunicaste de forma general, sin intención específica.' },
-    5: { si:'✅ Tenés algo que sostiene el vínculo más allá.',   no:' Cada evento sentís que empezás de cero con tus contactos.',  nose:'⚠️ Sabés que necesitás estructurar el cierre de tu evento.' },
+    1: { si:'✅ Ya sabés reconocer quién mostró un interés genuino en vos o tus vinos.',        no:' Todavía no tenés una forma clara de identificar a las personas con más intención de compra.', nose:'⚠️ Te cuesta diferenciar a quienes tienen interés real de cortesía.' },
+    2: { si:'✅Cada persona se fue con un próximo paso claro.',    no:' Cuando termina el evento, sentís que la conversación queda sin una continuidad definida.',              nose:'⚠️ Pensaste en armar algo para el cierre del evento, pero no lo activaste porque no sabés qué decir exactamente' },
+    3: { si:'✅ Volviste a estar presente cuando el interés seguía vivo.',        no:' Después del evento, el contacto quedó en pausa.',          nose:'⚠️ Sabés que ese momento necesita un siguiente paso, pero todavía no forma parte de tu recorrido.' },
+    4: { si:'✅ Cada mensaje tuvo una intención clara y hablaste de forma cercana.',      no:' Te cuesta saber qué mensaje mandar para acompañar la experiencia post-evento.',                 nose:'⚠️ Retomaste la conversación cuando el entusiasmo ya había empezado a bajar' },
+    5: { si:'✅Ya tenés una forma de seguir construyendo el vínculo después del evento.',   no:' Cada nueva feria o cata sentís que empieza de cero.',  nose:'⚠️ Intuís que el verdadero cierre del evento ocurre después, pero todavía estás construyendo esa parte del recorrido.' },
   };
 
   const resultados = {
     alto: {
       clase: 'nivel-alto',
-      tag: 'Resultado: Sistema bien orientado',
-      titulo: 'Estás más cerca que la mayoría de tener resultados. Tus eventos ya son un éxito. El problema no es la estructura — es la consistencia.',
-      diagnostico: 'Tenés armada la cata. Sabés cómo vender en las ferias. Te elogian por tu servicio y tu conocimiento. El desafío ahora es que esto deje de depender de tu energía de ese día y se vuelva un proceso que funciona solo, pero que se sienta humano al mismo tiempo. Una sola fuga sistemática puede estar costándote más de lo que creés.',
-      proximo_titulo: 'Identificá la fuga específica.',
-      proximo_texto: 'Mirá en cuál de los 5 puntos marcaste "a veces" o "no sé". Ese es donde estás perdiendo ventas que ya estaban casi hechas. Voy a compartir con vos los pasos donde te muestro cómo cerrar ese punto. Y que se siga sintiendo tu presencia.',
+      tag: 'Resultado: Ya tenés una base sólida',
+      titulo: 'Tu forma de vender ya genera confianza. Ahora toca lograr que esa experiencia siga dando frutos cuando el evento termina.',
+      diagnostico: 'Hay algo que ya funciona muy bien: sabés crear una experiencia que conecta. En tus catas, ferias o degustaciones la gente escucha, pregunta, disfruta y confía en tu recomendación.'
+'El desafío aparece después.'
+'Cuando termina el encuentro, ese interés queda dependiendo de que vos recuerdes escribir, hacer un seguimiento o retomar la conversación. Y eso, con el ritmo del día a día, no siempre pasa.'
+'No necesitás cambiar la forma en la que vendés. Solo darle continuidad para que cada persona siga sintiendo tu presencia, incluso cuando ya guardaste las copas.',
+      proximo_titulo: 'Descubrí dónde se corta el recorrido, e identificá la fuga.',
+      proximo_texto: 'Fijate en cuál de los cinco puntos respondiste "A veces" o "No sé". Ahí hay una oportunidad concreta para mejorar la experiencia de tus futuros clientes. En los próximos correos te voy a mostrar cómo resolver ese punto con un seguimiento simple, cercano y natural.',
       cta: 'Revisar mi email'
     },
     medio: {
       clase: 'nivel-medio',
-      tag: 'Resultado: Hay fugas importantes',
-      titulo: 'Ves el problema pero no lo estás resolviendo todavía.',
-      diagnostico: 'Hay energía y conexión en los eventos a los que asistís o las catas que organizas, pero el seguimiento tiene agujeros concretos. El resultado: gente que "quería saber más" y nunca más apareció — no porque no quisiera, sino porque no hay un sistema humanizado que la acompañe después del evento.',
-      proximo_titulo: 'Armá el sistema mínimo.',
-      proximo_texto: 'No necesitás una automatización compleja. Necesitás tres cosas claras: quién, cuándo y qué mensaje. Te ayudo a guiar ese proceso, de manera simple y sin que se convierta en una tarea más para vos.',
+      tag: 'Tené la oportunidad de acompañar mejor a tus contactos',
+      titulo: 'Estás generando interés. Ahora hace falta que sostengas esa conversación.',
+      diagnostico: 'Hay energía y conexión en los eventos a los que asistís o las catas que organizas. Cada evento deja personas que disfrutaron conocerte, probar tus vinos o escuchar lo que hacés.'
+
+'Muchas incluso se van pensando: "Después le escribo".'
+
+'Pero entre la rutina de ambas, esa conversación se enfría y la oportunidad queda ahí, sin avanzar.'
+
+'No estás haciendo las cosas mal. Ni es falta de interés.'
+
+'Simplemente todavía no usaste una forma sencilla de acompañar a cada persona después del evento, sin que eso dependa de tu memoria o de tener un rato libre.'
+
+'Pero calma, porque hay solución.',
+      proximo_titulo:'Empecemos por un seguimiento simple.',
+      proximo_texto: 'No necesitás automatizaciones complejas ni aprender herramientas difíciles. Con un recorrido claro y algunos mensajes bien pensados, podés seguir presente sin perder la cercanía que hace única tu forma de vender.
+
+En los próximos correos te voy a mostrar cómo hacerlo.',
       cta: 'Revisar mi email'
     },
     bajo: {
       clase: 'nivel-bajo',
-      tag: 'Resultado: Es lo que intuías, hay una fuga post-evento',
-      titulo: 'Tu evento funciona. Lo que viene después, no.',
-      diagnostico: 'Estás invirtiendo tiempo, plata y energía en generar interés en cada evento, cata o feria que creás o a la que asistís, para después soltar a esa persona sin ningún puente. Cada evento que termina sin seguimiento es dinero que ya generaste y dejaste caer. No es falta de talento. Es falta de sistema.',
-      proximo_titulo: 'Empezá por lo que ya conseguiste, la atención de quién asistió o habló con vos.',
-      proximo_texto: 'Antes de pensar en el mensaje perfecto, hay que resolver lo básico: saber quién estuvo ahí y qué pasa con esa persona en las 48 horas siguientes. Vamos a recorrer ese proceso paso a paso.',
+      tag: 'Resultado: Hay una gran oportunidad después de cada evento',
+      titulo: 'Tu evento funciona. El trabajo más difícil ya lo hacés: lograr que alguien se acerque. Ahora falta acompañar ese interés.',
+      diagnostico: 'Organizar una cata, participar en una feria o presentar tus vinos requiere tiempo, energía y mucha dedicación.
+
+'Y cuando alguien se detiene a conversar con vos, ya pasó lo más difícil: consiguiste interés y confianza.'
+
+'Lo que falta no es esfuerzo. Es una manera de continuar esa conversación cuando el evento termina.'
+
+'Porque si ese contacto no recibe un próximo paso, es muy fácil que la intención se diluya entre las cosas que pasan en el día a día.'
+
+'La buena noticia es que no hace falta perseguir a nadie, ni estar enviando mensajes todo el tiempo. Hace falta un recorrido simple que mantenga vivo ese vínculo.',
+      proximo_titulo: 'Empezá por nutrir lo que ya conseguiste, la atención de quién asistió o habló con vos.',
+      proximo_texto: 'Antes de pensar en el mensaje perfecto, hay que resolver lo básico: saber quién estuvo ahí y qué pasa con esa persona en las 48 horas siguientes. Vamos a recorrer ese proceso paso a paso. En los próximos correos te voy a mostrar cómo acompañar a cada contacto durante los días posteriores al evento con un sistema sencillo y humanizado, para que más personas vuelvan a elegirte sin sentir que les estás vendiendo todo el tiempo.',
       cta: 'Revisar mi email'
     }
   };
